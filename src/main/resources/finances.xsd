@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.classfinancemanager.pwr.edu.pl/soap/generateddata"
+           targetNamespace="http://www.classfinancemanager.pwr.edu.pl/soap/generateddata" elementFormDefault="qualified">
+
+  <!---Person-->
+  <xs:element name="getPersonsRequest">
+    <xs:complexType>
+      <xs:sequence>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="getPersonsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="personsList" type="tns:person" nillable="true" minOccurs="0" maxOccurs="100"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="createPersonRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="person" type="tns:person"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+
+  <xs:complexType name="person">
+    <xs:sequence>
+      <xs:element name="id" type="xs:long"/>
+      <xs:element name="name" type="xs:string"/>
+      <xs:element name="surname" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!---Event-->
+  <xs:element name="getEventsRequest">
+    <xs:complexType>
+      <xs:sequence>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="getEventsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="eventsList" type="tns:event" minOccurs="0" maxOccurs="100"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="createEventRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="event" type="tns:event"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="event">
+    <xs:sequence>
+      <xs:element name="id" type="xs:long"/>
+      <xs:element name="name" type="xs:string"/>
+      <xs:element name="place" type="xs:string"/>
+      <xs:element name="date" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!---Installment-->
+  <xs:element name="getInstalmentsRequest">
+    <xs:complexType>
+      <xs:sequence>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="getInstalmentsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="instalmentsList" type="tns:instalment" minOccurs="0" maxOccurs="100"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="createInstalmentRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="instalment" type="tns:instalment"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="getInstalmentsByPersonRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="personId" type="xs:long"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="instalment">
+    <xs:sequence>
+      <xs:element name="id" type="xs:long"/>
+      <xs:element name="instalmentNumber" type="xs:long"/>
+      <xs:element name="deadline" type="xs:string"/>
+      <xs:element name="amount" type="xs:double"/>
+      <xs:element name="eventId" type="xs:long"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!---Payment-->
+  <xs:element name="getPaymentsRequest">
+    <xs:complexType>
+      <xs:sequence>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="getPaymentsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="paymentList" type="tns:payment" minOccurs="0" maxOccurs="100"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="createPaymentRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="payment" type="tns:payment"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="getPaymentsByPersonRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="personId" type="xs:long"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="payment">
+    <xs:sequence>
+      <xs:element name="id" type="xs:long"/>
+      <xs:element name="payDay" type="xs:string"/>
+      <xs:element name="amount" type="xs:double"/>
+      <xs:element name="personId" type="xs:long"/>
+      <xs:element name="instalmentId" type="xs:long"/>
+    </xs:sequence>
+  </xs:complexType>
+
+
+</xs:schema>
